@@ -18,4 +18,15 @@ print(plusieursMotsSeparésParPipe.split("|"))
 plusieursMotsConcaténés="voici "+"plusieurs "+"mots"
 print(plusieursMotsConcaténés)
 
+#re est le module pour traiter les expressions régulières
+import re
+resultat=re.sub("^M ","", "M MIDYM ")#remplacer M espace lorsque c'est en début de mot par rien (donc supprimer 'M ')
+print(resultat)
+
 #opérations dates
+import datetime as dt
+import time as t
+a=dt.datetime.now()
+t.sleep(2)
+durée=dt.datetime.now()-a
+print(durée.seconds)
