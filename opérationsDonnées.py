@@ -12,8 +12,8 @@ phrase="123456789"
 print(phrase[2:])#on enlève les 2 premiers caractères
 print(phrase[:6])#on va jusqu'au 6e caractères (donc on enlève les suivants)
 
-plusieursMotsSeparésParPipe="voici|plusieurs|mots"
-print(plusieursMotsSeparésParPipe.split("|"))
+plusieursMotsSeparésParPipes="voici|plusieurs|mots"
+print(plusieursMotsSeparésParPipes.split("|"))
 
 plusieursMotsConcaténés="voici "+"plusieurs "+"mots"
 print(plusieursMotsConcaténés)
