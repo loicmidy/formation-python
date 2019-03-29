@@ -72,7 +72,6 @@ print(tableau.mean(axis=1),tableau.std(axis=0))
 
 
 #5 ALGEBRE LINEAIRE
-
 #transposition
 tableau = np.array([[1,2,3],[4,5,6]])
 print(tableau.T)
@@ -92,5 +91,25 @@ a=dt.datetime.now()
 tab3=tab1.dot(tab2)
 durée=dt.datetime.now()-a
 print("durée : ",durée.seconds)
+
+
+#6 CHANGEMENT DE FORME DE TABLEAUX : reshaping and ravel
+#reshaping
+tab1 = np.arange(8)
+print(tab1)
+tab2=tableau.reshape((4, 2))
+print(tab2)
+tab3=tableau.reshape((4, 2),order='F')
+print(tab3)
+
+#l'inverse : ravel
+print(tab2)
+tab4=tab2.ravel()
+print(tab4)
+tab5=tab2.ravel(order='F')
+print(tab5)
+
+
+
 
 
