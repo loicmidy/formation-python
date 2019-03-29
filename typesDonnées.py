@@ -24,7 +24,7 @@ a = dt.datetime.now()
 print(a.day,a.month,a.year)
 print(a,type(a))
 
-#conversions types de données
+#conversions (synonymes : transtypage/cast en Anglais) types de données
 a=str(2.0)
 print(a,type(a))
 
