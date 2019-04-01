@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import commentaires as c
+import ecrireCommentaires as c
 
 loicM=c.Personne("loïc","Midy")
 
