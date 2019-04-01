@@ -33,7 +33,7 @@ print(tableauUnMillions.dtype)#type de données => ici des entiers (numpy "devin
 tableau=np.array([1,2,3],dtype=np.int16)#ici entier sur 16 bits donc ne pas dépasser 2^16 soit 65536
 
 #conversion (synonymes : transtypage/cast en Anglais) types de données
-tableau=tableau.astype(np.float64)
+tableau=tableau.astype(np.float64)#car astype retourne une copie
 print(tableau.dtype)
 
 
@@ -90,16 +90,16 @@ tab2=np.arange(n*n).reshape((n,n),order='F')
 a=dt.datetime.now()
 tab3=tab1.dot(tab2)
 durée=dt.datetime.now()-a
-print("durée : ",durée.seconds)
+print("durée produit matricile: ",n," ",durée.seconds)
 
 
 #6 CHANGEMENT DE FORME DE TABLEAUX : reshaping and ravel
 #reshaping
 tab1 = np.arange(8)
 print(tab1)
-tab2=tableau.reshape((4, 2))
+tab2=tab1.reshape((4, 2))
 print(tab2)
-tab3=tableau.reshape((4, 2),order='F')
+tab3=tab1.reshape((4, 2),order='F')
 print(tab3)
 
 #l'inverse : ravel

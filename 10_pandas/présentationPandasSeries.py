@@ -26,6 +26,11 @@ print(notesElevesMath.std())
 print(notesElevesMath.skew())#coefficient d'asymétrie (skewness en anglais) 
 print(notesElevesMath.kurtosis())#
 
+#comptages du nombre de chaque valeur trié par ordre décroissant
+notesElevesMath=pd.Series([2,2,2,2,10,10,10,15,15,20])
+print(notesElevesMath.value_counts())
+
+
 #VA qualitative
 notesElevesMath=pd.Series(['excellent','bien','bien','moyen','moyen'],index=['a','b','c','d','e'])
 print(notesElevesMath.describe())
