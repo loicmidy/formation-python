@@ -13,4 +13,5 @@ print(irisdataframe.info())
 print(irisdataframe.describe())
 print(irisdataframe['target'].describe())
 
-
+print(irisdataframe.cov())
+print(irisdataframe.corr())
