@@ -1,18 +1,22 @@
 # -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
+import pathlib
+cheminRepertoireDonnées=pathlib.Path.cwd().parent.joinpath('dataFormationPython')
+
 
 #PREMIER DATAFRAME
 notesElevesMatières=pd.DataFrame({'math':[2,10,15,17,20,8],'physique':[np.nan,9,14,12,17,17],'sexe':['H','F','H','F','H','F']},index=['a','b','c','d','e','f'])
-print(notesElevesMatières)
-print(notesElevesMatières.describe(include='all'))#les calculs sont faits hors NaN
+print(notesElevesMatières.info())
+print(notesElevesMatières.describe(include='all')) #les calculs sont faits hors NaN
+
 
 
 #IMPORTS
-notesElevesMatières=pd.read_csv("C:/Users/lmidy/Documents/GitHub/dataFormationPython/eleves.csv",sep="|",dtype={'élève':str,'moyenneMath':float,'moyennePhysique':str,'sexe':str,'PCS':int,'dateNaissance':str})
-#notesElevesMatières=pd.read_sas("")
+cheminFichierEleves=cheminRepertoireDonnées.joinpath('eleves.csv')
+notesElevesMatières=pd.read_csv(cheminFichierEleves,sep="|",dtype={'élève':str,'moyenneMath':float,'moyennePhysique':str,'sexe':str,'PCS':int,'dateNaissance':str})
 print(notesElevesMatières.info())
-
+print(notesElevesMatières.describe(include='all')) 
 
 #DOUBLONS suppression des doublons : il y a 2 fois l'élève a dans le fichier
 notesElevesMatièresSansDoublons=notesElevesMatières.drop_duplicates(['élève'])#notesElevesMatières pas modifié

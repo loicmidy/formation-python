@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import pandas as pd
-import numpy as np
 from sklearn import datasets
 
 
@@ -13,5 +12,4 @@ print(irisdataframe.info())
 print(irisdataframe.describe())
 print(irisdataframe['target'].describe())
 
-print(irisdataframe.cov())
-print(irisdataframe.corr())
+

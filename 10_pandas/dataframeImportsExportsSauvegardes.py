@@ -2,7 +2,7 @@
 import pandas as pd
 
 notesElevesMatières=pd.read_csv("C:/Users/lmidy/Documents/GitHub/dataFormationPython/eleves.csv",sep="|",dtype={'élève':str,'moyenneMath':float,'moyennePhysique':str,'sexe':str,'PCS':int,'dateNaissance':str})
-
+#notesElevesMatières=pd.read_sas("")
 
 #EXPORTS
 notesElevesMatières.to_csv("C:/Users/lmidy/Documents/GitHub/dataFormationPython/elevesModifie.csv",sep="|")
