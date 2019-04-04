@@ -80,5 +80,5 @@ print(modeleLogitAdultere.aic)
 #prédiction
 respondent1000 = adultèreFeminin.iloc[[1000]]
 modeleLogitAdultere.predict(respondent1000)
-modeleLogitAdultere.predict(x2)
+
  
