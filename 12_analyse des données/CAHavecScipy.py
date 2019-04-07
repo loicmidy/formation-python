@@ -50,3 +50,13 @@ plt.show()
 # fcluster form flat clusters from the hierarchical clustering defined by the given linkage matrix
 mesClusters=pd.Series(fcluster(Z, 3, criterion='maxclust'))
 finalDf = pd.concat([iris, mesClusters], axis = 1)
+
+
+# utlisation d'un autre critère d'agrégation
+Z = linkage(X_scaled, 'single')
+df=pd.DataFrame(Z,columns=['idx1','idx2','dist','sample_count'])
+df_fin=df.tail(6)
+df_fin.plot(y=["dist"],kind='line')
+
+
+
