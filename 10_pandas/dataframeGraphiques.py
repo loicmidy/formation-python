@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import pandas as pd
-import seaborn as sns 
+import seaborn as sns
+import matplotlib.pyplot as plt 
+import numpy as np
 
 #1 : INTRODUCTION QUARTET D'ASCOMBE avec seaborn
 anscombe = sns.load_dataset("anscombe")
@@ -18,7 +20,7 @@ sns.lmplot("x", "y", data=anscombe[anscombe['dataset']=='IV'])
 # 2 : GRAPHIQUES BASIQUES AVEC PLOT
 tips = sns.load_dataset("tips")
 
-tips.plot(y=["tip","size"],kind='line',subplots=True)
+tips.plot(y=["tip","size","total_bill"],kind='line',subplots=True)
 
 pourboireMoyenEtnbFumeurparSexe=tips.groupby('sex').agg({'smoker': lambda row: row.value_counts()['Yes'],'tip': lambda row: sum(row) / len(row)})
 print(pourboireMoyenEtnbFumeurparSexe)
@@ -44,10 +46,18 @@ sns.relplot(x="total_bill", y="tip", hue="smoker", style="smoker",data=tips);
 sns.relplot(x="total_bill", y="tip", hue="smoker",col="time", data=tips);
 sns.relplot(x="total_bill", y="tip", size="size", data=tips);
 
+g = sns.FacetGrid(tips, row="sex", col="time", margin_titles=True)
+g.map(plt.hist, "tip")
+
+sns.lmplot(x="total_bill", y="tip", col="time", hue="smoker",data=tips);
+
+
 #matrice de nuages de points => très utile avant économétrie
 iris = sns.load_dataset("iris")
 sns.pairplot(iris)
 sns.pairplot(iris, hue="species")
+
+
 
 
 
@@ -58,3 +68,7 @@ effectifsParClasseEtSexe=titanic.groupby(['sex','pclass',])['sex'].count()
 print(effectifsParClasseEtSexe)
 sns.catplot(x="sex", y="survived", hue="class", kind="bar", data=titanic)
 
+g = sns.catplot(x="fare", y="survived", row="class",
+                kind="box", orient="h", height=1.5, aspect=4,
+                data=titanic.query("fare > 0"))
+g.set(xscale="log");
