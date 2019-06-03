@@ -19,6 +19,9 @@ selectionLignesRespectantDeuxConditions=tips[(tips['total_bill']>20) & (tips['ti
 # au moins une des 2 conditions doit être respectée (| = OU) 
 selectionLignesRespectantAuMoinsUneCondition=tips[(tips['total_bill']>20) | (tips['tip']>3)]
 
+df=pd.DataFrame({'x':[1,np.nan,3]})
+uneConditionPerteValeursManquantes=df[df['x']>1]
+uneConditionEtGarderValeursManquantes=df[(df['x'].isna()) | (df['x']>1)]
 
 # 3 : SELECTION/SLICING SUR POSITIONS  COMME AVEC NUMPY
 tips.iloc[0]#sélection première ligne
@@ -39,7 +42,7 @@ tips.drop(['total_bill_with_taxes'], axis=1,inplace=True)
 tips.rename(columns={'total_bill': 'total_bill_2'},inplace=True)
 tips.rename(columns={'total_bill_2': 'total_bill'},inplace=True)
 
-tips.sort_values(['sex', 'total_bill'],inplace=True)
+tips.sort_values(['sex', 'total_bill'],ascending=[True,False],inplace=True)
 
 def calculsComplexesPlusieursColonnes(total_bill,tip,smoker):
     if smoker=="Yes":return total_bill+tip
